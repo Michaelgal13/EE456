@@ -32,13 +32,13 @@ btnC.pull = Pull.UP
 i2c = busio.I2C(board.SCL, board.SDA)
 
 # 128x32 OLED Display
-reset_pin = DigitalInOut(board.D4)
-display = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c, reset=reset_pin)
+# reset_pin = DigitalInOut(board.D4)
+# display = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c, reset=reset_pin)
 # Clear the display.
-display.fill(0)
-display.show()
-width = display.width
-height = display.height
+# display.fill(0)
+# display.show()
+# width = display.width
+# height = display.height
 
 # Configure RFM9x LoRa Radio
 CS = DigitalInOut(board.CE1)
@@ -47,34 +47,38 @@ spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 
 while True:
     # Clear the image
-    display.fill(0)
+    #display.fill(0)
 
     # Attempt to set up the RFM9x Module
     try:
         rfm9x = adafruit_rfm9x.RFM9x(spi, CS, RESET, 915.0)
-        display.text('RFM9x: Detected', 0, 0, 1)
+        #display.text('RFM9x: Detected', 0, 0, 1)
+        print('RFM9x: Detected')
     except RuntimeError as error:
         # Thrown on version mismatch
-        display.text('RFM9x: ERROR', 0, 0, 1)
+        #display.text('RFM9x: ERROR', 0, 0, 1)
         print('RFM9x Error: ', error)
 
     # Check buttons
     if not btnA.value:
         # Button A Pressed
-        display.text('Ada', width-85, height-7, 1)
-        display.show()
+        #display.text('Ada', width-85, height-7, 1)
+        #display.show()
         time.sleep(0.1)
+        print('Ada')
     if not btnB.value:
         # Button B Pressed
-        display.text('Fruit', width-75, height-7, 1)
-        display.show()
+        #display.text('Fruit', width-75, height-7, 1)
+        #display.show()
         time.sleep(0.1)
+        print('Fruit')
     if not btnC.value:
         # Button C Pressed
-        display.text('Radio', width-65, height-7, 1)
-        display.show()
+        #display.text('Radio', width-65, height-7, 1)
+        #display.show()
         time.sleep(0.1)
+        print('Radio')
 
-    display.show()
+    #display.show()
     time.sleep(0.1)
 
