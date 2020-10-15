@@ -16,7 +16,7 @@ import adafruit_ssd1306
 import adafruit_rfm9x
 
 # Button A
-btnA = DigitalInOut(board.D5)
+btnA = DigitalInOut(board.D13)
 btnA.direction = Direction.INPUT
 btnA.pull = Pull.UP
 
