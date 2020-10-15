@@ -9,12 +9,12 @@ import busio
 from digitalio import DigitalInOut, Direction, Pull
 import board
 # Import the SSD1306 module.
-import adafruit_ssd1306
+# import adafruit_ssd1306
 # Import the RFM9x radio module.
 import adafruit_rfm9x
 
 # Button A
-btnA = DigitalInOut(board.D5)
+btnA = DigitalInOut(board.D13)
 btnA.direction = Direction.INPUT
 btnA.pull = Pull.UP
 
