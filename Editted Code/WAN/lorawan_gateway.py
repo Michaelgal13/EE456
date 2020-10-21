@@ -121,27 +121,30 @@ def gateway():
         elif new_line == "incoming packet...\n":
             display.fill(0)
             print('incoming pkt...')
-            # read incoming packet info
-            pkt_json = proc.stdout.readline().decode('utf-8')
-            #added due to error
-            cutVal = pkt_json.rfind('}') + 1
-            pkt_json = pkt_json[:cutVal]
-            #done with Michael additions
-            print(pkt_json)
-            print('DonePrint')
-            # parse packet
-            pkt_data = json.loads(pkt_json)
-            rxpk_data = pkt_data['rxpk']
-            pkt_data = rxpk_data.pop(0)
-            # display packet info
-            pkt_freq = pkt_data['freq']
-            pkt_size = pkt_data['size']
-            pkt_rssi = pkt_data['rssi']
-            pkt_tmst = pkt_data['tmst']
-            display.text('* PKT RX on {0}MHz'.format(pkt_freq), 0, 0, 1)
-            display.text('RSSI: {0}dBm, Sz: {1}b'.format(pkt_rssi, pkt_size), 0, 10, 1)
-            display.text('timestamp: {0}'.format(pkt_tmst), 0, 20, 1)
-            new_line = "gateway status update\n"
+            try:
+                # read incoming packet info
+                pkt_json = proc.stdout.readline().decode('utf-8')
+                #added due to error
+                cutVal = pkt_json.rfind('}') + 1
+                pkt_json = pkt_json[:cutVal]
+                #done with Michael additions
+                print(pkt_json)
+                print('DonePrint')
+                # parse packet
+                pkt_data = json.loads(pkt_json)
+                rxpk_data = pkt_data['rxpk']
+                pkt_data = rxpk_data.pop(0)
+                # display packet info
+                pkt_freq = pkt_data['freq']
+                pkt_size = pkt_data['size']
+                pkt_rssi = pkt_data['rssi']
+                pkt_tmst = pkt_data['tmst']
+                display.text('* PKT RX on {0}MHz'.format(pkt_freq), 0, 0, 1)
+                display.text('RSSI: {0}dBm, Sz: {1}b'.format(pkt_rssi, pkt_size), 0, 10, 1)
+                display.text('timestamp: {0}'.format(pkt_tmst), 0, 20, 1)
+                new_line = "gateway status update\n"
+            except:
+                print("Parsing Error")
         display.show()
 
 def gateway_info():
