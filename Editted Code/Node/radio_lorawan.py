@@ -65,7 +65,7 @@ devaddr, nwkey, app = filereadTestGallagher.readDeviceInfo()
 # Initialize ThingsNetwork configuration
 ttn_config = TTN(devaddr, nwkey, app, country='US')
 # Initialize lora object
-lora = TinyLoRa(spi, cs, irq, rst, ttn_config, channel = 6)
+lora = TinyLoRa(spi, cs, irq, rst, ttn_config, channel = 8)
 # 2b array to store sensor data
 data_pkt = bytearray(2)
 # time to delay periodic packet sends (in seconds)
