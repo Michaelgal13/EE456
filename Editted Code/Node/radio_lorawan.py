@@ -32,16 +32,16 @@ btnC.direction = Direction.INPUT
 btnC.pull = Pull.UP
 
 # Create the I2C interface.
-i2c = busio.I2C(board.SCL, board.SDA)
+# i2c = busio.I2C(board.SCL, board.SDA)
 
 # 128x32 OLED Display
 reset_pin = DigitalInOut(board.D4)
-display = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c, reset=reset_pin)
+# display = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c, reset=reset_pin)
 # Clear the display.
-display.fill(0)
-display.show()
-width = display.width
-height = display.height
+# display.fill(0)
+# display.show()
+# width = display.width
+# height = display.height
 
 # TinyLoRa Configuration
 spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
@@ -91,17 +91,17 @@ def send_pi_data(data):
     # Send data packet
     lora.send_data(data_pkt, len(data_pkt), lora.frame_counter)
     lora.frame_counter += 1
-    display.fill(0)
-    display.text('Sent Data to TTN!', 15, 15, 1)
+    # display.fill(0)
+    # display.text('Sent Data to TTN!', 15, 15, 1)
     print('Data sent!')
-    display.show()
+    # display.show()
     time.sleep(0.5)
 
 while True:
     packet = None
     # draw a box to clear the image
-    display.fill(0)
-    display.text('RasPi LoRaWAN', 35, 0, 1)
+    # display.fill(0)
+    # display.text('RasPi LoRaWAN', 35, 0, 1)
 
     # read the raspberry pi cpu load
     cmd = "top -bn1 | grep load | awk '{printf \"%.1f\", $(NF-2)}'"
@@ -113,20 +113,20 @@ while True:
         send_pi_data(CPU)
     if not btnB.value:
         # Display CPU Load
-        display.fill(0)
-        display.text('CPU Load %', 45, 0, 1)
-        display.text(str(CPU), 60, 15, 1)
-        display.show()
+        # display.fill(0)
+        # display.text('CPU Load %', 45, 0, 1)
+        # display.text(str(CPU), 60, 15, 1)
+        # display.show()
         time.sleep(0.1)
     if not btnC.value:
-        display.fill(0)
-        display.text('* Periodic Mode *', 15, 0, 1)
-        display.show()
+        # display.fill(0)
+        # display.text('* Periodic Mode *', 15, 0, 1)
+        # display.show()
         time.sleep(0.5)
         send_pi_data_periodic()
 
 
-    display.show()
+    # display.show()
     time.sleep(.1)
 
 
