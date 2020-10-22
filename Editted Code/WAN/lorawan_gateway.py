@@ -17,7 +17,7 @@ import board
 import adafruit_ssd1306
 
 # Button A
-btnA = DigitalInOut(board.D5)
+btnA = DigitalInOut(board.D13)
 btnA.direction = Direction.INPUT
 btnA.pull = Pull.UP
 
@@ -175,15 +175,15 @@ while True:
     #                                     mac_addr[10:12]), 25, 25, 1)
     # gateway()
     # Radio Bonnet Buttons
-    # if not btnA.value:
+    if not btnA.value:
         # show pi info
-    #    stats()
-    # if not btnB.value:
+       stats()
+    if not btnB.value:
         # start the gateway
-    #    gateway()
-    # if not btnC.value:
+       gateway()
+    if not btnC.value:
         # show gateway configuration
-    #    gateway_info()
+       gateway_info()
 
     # display.show()
     time.sleep(.1)
