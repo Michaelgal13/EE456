@@ -173,7 +173,7 @@ while True:
     #                                     mac_addr[4:6]), 25, 15, 1)
     # display.text('ff:{0}:{1}:{2}'.format(mac_addr[6:8],mac_addr[8:10],
     #                                     mac_addr[10:12]), 25, 25, 1)
-    # gateway()
+    gateway()
     # Radio Bonnet Buttons
     # if not btnA.value:
         # show pi info
