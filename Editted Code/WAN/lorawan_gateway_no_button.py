@@ -17,19 +17,19 @@ import board
 import adafruit_ssd1306
 
 # Button A
-btnA = DigitalInOut(board.D5)
-btnA.direction = Direction.INPUT
-btnA.pull = Pull.UP
+# btnA = DigitalInOut(board.D5)
+# btnA.direction = Direction.INPUT
+# btnA.pull = Pull.UP
 
 # Button B
-btnB = DigitalInOut(board.D6)
-btnB.direction = Direction.INPUT
-btnB.pull = Pull.UP
+# btnB = DigitalInOut(board.D6)
+# btnB.direction = Direction.INPUT
+# btnB.pull = Pull.UP
 
 # Button C
-btnC = DigitalInOut(board.D12)
-btnC.direction = Direction.INPUT
-btnC.pull = Pull.UP
+# btnC = DigitalInOut(board.D12)
+# btnC.direction = Direction.INPUT
+# btnC.pull = Pull.UP
 
 # Create the I2C interface.
 i2c = busio.I2C(board.SCL, board.SDA)
