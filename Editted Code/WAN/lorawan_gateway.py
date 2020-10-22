@@ -121,7 +121,7 @@ def gateway():
         elif new_line == "incoming packet...\n":
             # display.fill(0)
             print('incoming pkt...')
-            try:
+            # try:
                 # read incoming packet info
                 pkt_json = proc.stdout.readline().decode('utf-8')
                 #added due to error
@@ -143,8 +143,8 @@ def gateway():
                 # display.text('RSSI: {0}dBm, Sz: {1}b'.format(pkt_rssi, pkt_size), 0, 10, 1)
                 # display.text('timestamp: {0}'.format(pkt_tmst), 0, 20, 1)
                 new_line = "gateway status update\n"
-            except:
-                print("Parsing Error")
+            # except:
+            #    print("Parsing Error")
         # display.show()
 
 def gateway_info():
