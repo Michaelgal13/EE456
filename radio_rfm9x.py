@@ -64,6 +64,7 @@ while True:
     if packet is None:
         # display.show()
         # display.text('- Waiting for PKT -', 15, 20, 1)
+        packet = None
     else:
         # Display the packet text and rssi
         # display.fill(0)
