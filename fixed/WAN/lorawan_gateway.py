@@ -17,7 +17,7 @@ import board
 # import adafruit_ssd1306
 
 # Button A
-btnA = DigitalInOut(board.D5)
+btnA = DigitalInOut(board.D13)
 btnA.direction = Direction.INPUT
 btnA.pull = Pull.UP
 
