@@ -148,6 +148,7 @@ def gateway():
             print('RSSI: {0}dBm, Sz: {1}b'.format(pkt_rssi, pkt_size))
             print('timestamp: {0}'.format(pkt_tmst))
             new_line = "gateway status update\n"
+            time.sleep(0.25)
         # display.show()
 
 def gateway_info():
@@ -189,4 +190,4 @@ while True:
         gateway_info()
 
     # display.show()
-    time.sleep(1)
+    time.sleep(.1)
