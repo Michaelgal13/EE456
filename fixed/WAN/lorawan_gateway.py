@@ -127,8 +127,8 @@ def gateway():
             # read incoming packet info
             pkt_json = proc.stdout.readline().decode('utf-8')
             #added due to error
-            cutVal = pkt_json.rfind('}') + 1
-            pkt_json = pkt_json[:cutVal]
+            # cutVal = pkt_json.rfind('}') + 1
+            # pkt_json = pkt_json[:cutVal]
             #done with Michael additions
             print(pkt_json)
             print('DonePrint')
