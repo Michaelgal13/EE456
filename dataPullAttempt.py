@@ -1,8 +1,8 @@
 import time
 import ttn
 
-app_id = ""
-access_key = ""
+app_id = "rpi-gallagher-testing-0001"
+access_key = "ttn-account-v2.wZfQ22Dv6gegTvcsKsaLFroWmtNizPgvkcSpIC_j4Ts"
 
 def uplink_callback(msg, client):
   print("Received uplink from ", msg.dev_id)
@@ -19,7 +19,11 @@ mqtt_client.close()
 
 # using application manager client
 app_client =  handler.application()
-my_app = app_client.get()
-print(my_app)
-my_devices = app_client.devices()
-print(my_devices)
+try:
+    my_app = app_client.get()
+    print(my_app)
+    my_devices = app_client.devices()
+    print(my_devices)
+except RuntimeError:
+    print("Runtime")
+    

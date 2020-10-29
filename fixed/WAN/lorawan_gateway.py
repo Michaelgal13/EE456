@@ -10,7 +10,7 @@ import time
 import subprocess
 import uuid
 # Import Adafruit Blinka Libraries
-import busio
+# import busio
 from digitalio import DigitalInOut, Direction, Pull
 import board
 # Import the SSD1306 module.
@@ -32,7 +32,7 @@ btnC.direction = Direction.INPUT
 btnC.pull = Pull.UP
 
 # Create the I2C interface.
-i2c = busio.I2C(board.SCL, board.SDA)
+# i2c = busio.I2C(board.SCL, board.SDA)
 
 # 128x32 OLED Display
 # display = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c)
